@@ -11,19 +11,29 @@ class App extends Component {
   componentDidMount() {
     fetch('http://10.0.0.99:3001/lists').then(resp => resp.json())
     .then(lists => {
-      debugger;
+      // debugger;
+      this.setState({ lists })
     })
+  }
+
+  renderLists = (lists) => {
+    return (
+      lists.map(list => {
+        return (<li key={list.id}>{list.title}</li>)
+      })
+    )
   }
 
 
   render() {
-    return (
+    return !!this.state.lists.length ? (
       <div className="App">
         <ul>
-          <li></li>
+          {this.renderLists(this.state.lists)}
         </ul>
       </div>
-    );
+    ) :
+    <p>No data</p>;
   }
 }
 
