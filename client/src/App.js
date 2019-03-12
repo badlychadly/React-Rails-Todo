@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { Link, Route } from 'react-router-dom'
 import './App.css';
+import ShowList from './ShowList'
+import RenderLists from './RenderLists'
 
 class App extends Component {
   state = {
@@ -16,21 +19,17 @@ class App extends Component {
     })
   }
 
-  renderLists = (lists) => {
-    return (
-      lists.map(list => {
-        return (<li key={list.id}>{list.title}</li>)
-      })
-    )
-  }
+  
 
 
   render() {
     return !!this.state.lists.length ? (
       <div className="App">
-        <ul>
+        {/* <ul>
           {this.renderLists(this.state.lists)}
-        </ul>
+        </ul> */}
+        <Route exact path='/' render={routerProps => <RenderLists lists={this.state.lists} {...routerProps} />} />
+        <Route exact path={`lists/:listId`} render={routerProps => <ShowList {...routerProps} />} />
       </div>
     ) :
     <p>No data</p>;
