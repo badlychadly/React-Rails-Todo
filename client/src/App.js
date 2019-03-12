@@ -28,8 +28,8 @@ class App extends Component {
         {/* <ul>
           {this.renderLists(this.state.lists)}
         </ul> */}
+        <Route exact path={`/lists/:listId`} render={routerProps => <ShowList {...routerProps} />} />
         <Route exact path='/' render={routerProps => <RenderLists lists={this.state.lists} {...routerProps} />} />
-        <Route exact path={`lists/:listId`} render={routerProps => <ShowList {...routerProps} />} />
       </div>
     ) :
     <p>No data</p>;
