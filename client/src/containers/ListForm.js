@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup, Col } from 'reactstrap';
+import { Redirect } from 'react-router-dom'
 
 class ListForm extends Component {
 
     state = {
+        toNewList: false,
         modal: false,
         backdrop: false,
         list: {title: ''}
@@ -29,19 +31,23 @@ class ListForm extends Component {
 
 
       handleOnSubmit = (e) => {
+          console.log(this.state.list)
           e.preventDefault()
           fetch('http://10.0.0.99:3001/lists', {
               method: 'POST',
+              headers: {'Content-Type': 'application/json'},
               body: JSON.stringify(this.state.list)
           })
           .then(resp => resp.json())
-          .then(data => {
-              debugger;
-          })
+          .then(list => this.setState({list, toNewList: true}) 
+        )
       }
 
 
     render() {
+        if (this.state.toNewList) {
+            return <Redirect to={`/lists/${this.state.list.id}`} />
+        }
         return (
             <div>
                 <Button color="danger" onClick={this.toggle}>new list</Button>
