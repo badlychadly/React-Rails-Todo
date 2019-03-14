@@ -6,6 +6,7 @@ import './App.css';
 import ShowList from './ShowList'
 import RenderLists from './RenderLists'
 import { getLists } from './actions/listActions'
+import ListForm from './containers/ListForm'
 
 class App extends Component {
   
@@ -19,10 +20,8 @@ class App extends Component {
 
   render() {
     return !!this.props.lists.length ? (
-      <div className="App">
-        {/* <ul>
-          {this.renderLists(this.state.lists)}
-        </ul> */}
+      <div className="">
+        <ListForm />
         <Route exact path={`/lists/:listId`} render={routerProps => <ShowList lists={this.props.lists} {...routerProps} />} />
         <Route exact path='/' render={routerProps => <RenderLists lists={this.props.lists} {...routerProps} />} />
       </div>
