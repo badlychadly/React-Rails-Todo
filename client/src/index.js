@@ -17,7 +17,7 @@ const store = createStore(listReducer, applyMiddleware(thunk))
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <Route component={App} />
+            <App/>
         </Router>
     </Provider>,
  document.getElementById('root')
