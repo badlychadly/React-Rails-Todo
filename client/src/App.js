@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './App.css';
 import ShowList from './ShowList'
@@ -23,11 +23,13 @@ class App extends Component {
     return !!this.props.lists.length ? (
       <div className="">
         <ListForm />
-
+        <Switch>
         <ShowListRoute path={`/lists/:listId`} component={ShowList} lists={this.props.lists} />
 
         {/* <Route exact path={`/lists/:listId`} render={routerProps => <ShowList lists={this.props.lists} {...routerProps} />} /> */}
         <Route exact path='/' render={routerProps => <RenderLists lists={this.props.lists} {...routerProps} />} />
+
+        </Switch>
       </div>
     ) :
     <p>No data</p>;
