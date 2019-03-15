@@ -8,4 +8,5 @@
 
 list = List.create(title: "groceries")
 
-list.items.build([{name: "milk"}, {name: "cheese"}, {name: "butter"}, {name: "shampoo"}])
+list.items.create([{name: "milk"}, {name: "cheese"}, {name: "butter"}, {name: "shampoo"}])
+list.save
