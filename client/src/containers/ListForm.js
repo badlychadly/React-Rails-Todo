@@ -31,21 +31,28 @@ class ListForm extends Component {
 
 
       handleOnSubmit = (e) => {
-          console.log(this.state.list)
+        //   console.log(this.state.list)
           e.preventDefault()
-          fetch('http://10.0.0.99:3001/lists', {
-              method: 'POST',
-              headers: {'Content-Type': 'application/json'},
-              body: JSON.stringify(this.state.list)
-          })
-          .then(resp => resp.json())
-          .then(list => this.setState({list, toNewList: true}) 
+        //   fetch('http://10.0.0.99:3001/lists', {
+        //       method: 'POST',
+        //       headers: {'Content-Type': 'application/json'},
+        //       body: JSON.stringify(this.state.list)
+        //   })
+        //   .then(resp => resp.json())
+          this.props.addList(this.state.list).then(action => this.setState({list: action.list, toNewList: true}) 
         )
+      }
+
+      resetState = () => {
+          this.setState({toNewList: false})
       }
 
 
     render() {
+        // debugger;
         if (this.state.toNewList) {
+            // FIND way to reset toNewList state on submission
+            // this.resetState()
             return <Redirect to={`/lists/${this.state.list.id}`} />
         }
         return (

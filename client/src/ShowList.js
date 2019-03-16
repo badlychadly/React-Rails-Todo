@@ -6,12 +6,12 @@ const ShowList = (props) => {
     const hStyle = {
         color: 'black'
     }
-
-    const items = props.list.items.map(item => <li key={item.id}>{item.name}</li>)
+    // debugger;
+    const renderItems = !!props.list.items ? props.list.items.map(item => <li key={item.id}>{item.name}</li>) : <h3>No Items</h3>
 
     return (
         <div>
-            {items}
+            {renderItems}
         </div>
     )
 }
