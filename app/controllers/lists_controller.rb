@@ -9,6 +9,12 @@ class ListsController < ApplicationController
         render json: list
     end
 
+    def destroy
+        list = List.find_by(id: params[:id])
+        list.destroy
+        render json: list, status: 204
+    end
+
 
     private
     def list_params
