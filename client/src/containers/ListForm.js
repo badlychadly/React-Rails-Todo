@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup, Col } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 
+// TRY REF WITH key
+// TRY componentDidUpdate
+// TRY getDerivedStateFromProps
+
 class ListForm extends Component {
 
     state = {
@@ -10,6 +14,23 @@ class ListForm extends Component {
         backdrop: false,
         list: {title: ''}
       };
+
+      componentDidUpdate = () => {
+          debugger;
+          if (this.state.toNewList) {
+            // this.props.history.replace({state: undefined})
+            // this.setState(prevState => ({
+            //     modal: !prevState.modal,
+            //     toNewList: false
+            //   }));
+            this.setState({
+                modal: false,
+                toNewList: false,
+                list: {title: ''}
+            })
+          }
+      }
+
 
     toggle = () => {
         this.setState(prevState => ({
@@ -31,14 +52,8 @@ class ListForm extends Component {
 
 
       handleOnSubmit = (e) => {
-        //   console.log(this.state.list)
           e.preventDefault()
-        //   fetch('http://10.0.0.99:3001/lists', {
-        //       method: 'POST',
-        //       headers: {'Content-Type': 'application/json'},
-        //       body: JSON.stringify(this.state.list)
-        //   })
-        //   .then(resp => resp.json())
+
           this.props.addList(this.state.list).then(action => this.setState({list: action.list, toNewList: true}) 
         )
       }
@@ -50,9 +65,15 @@ class ListForm extends Component {
 
     render() {
         // debugger;
-        if (this.state.toNewList) {
+        if (!!this.state.toNewList) {
+            // debugger;
             // FIND way to reset toNewList state on submission
             // this.resetState()
+            // return <Redirect to={{
+            //     pathname: `/lists/${this.state.list.id}`,
+            //     state: {fromForm: true }
+            // }} 
+            // />
             return <Redirect to={`/lists/${this.state.list.id}`} />
         }
         return (
