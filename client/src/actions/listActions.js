@@ -30,3 +30,19 @@ export const addList = (listData) => {
         .then(list => dispatch({type: "ADD_LIST", list}))
     }
 }
+
+
+export const addItem = (list, itemData) => {
+    return dispatch => {
+        return fetch(`http://10.0.0.99:3001/lists/${list.id}/items`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(itemData)
+        })
+        .then(resp => resp.json())
+        .then(item => {
+            // debugger;
+            dispatch({type: "ADD_ITEM", list, item})
+        })
+    }
+}
