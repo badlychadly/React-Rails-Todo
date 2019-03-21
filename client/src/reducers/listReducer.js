@@ -10,10 +10,11 @@ export default (state = {
         case "ADD_LIST": 
             return {...state, lists: {...state.lists, [action.list.id]: action.list}}
         case "DELETE_LIST":
-        debugger;
-        let newLists = {...state.lists}
-            delete newLists[action.payload]
-            // delete state.lists
+        const {[action.payload]: _, ...newLists} = state.lists
+        // debugger;
+        // let newLists = {...state.lists}
+        //     delete newLists[action.payload]
+            
             return {...state, lists: newLists}
         case "ADD_ITEM":
         // debugger;
