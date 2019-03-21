@@ -20,7 +20,8 @@ class App extends Component {
 
 
   render() {
-    return !!this.props.lists.length ? (
+    // debugger;
+    return !!Object.keys(this.props.lists).length ? (
       <div className="">
         <ListForm addList={this.props.addList} />
         <Switch>
@@ -37,6 +38,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return ({
     lists: state.lists
   })

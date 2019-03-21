@@ -4,6 +4,9 @@ import { Badge } from 'reactstrap';
 
 const RenderLists = props => {
 
+  // debugger;
+
+  // const listsArray = Object.keys(props.lists).map(id => props.lists[id]);
   
 
     const renderLists = (lists) => {
@@ -20,11 +23,11 @@ const RenderLists = props => {
         )
       }
 
-    return (
-        <ul>
-        {renderLists(props.lists)}
-        </ul>
-    )
+  return (
+      <ul>
+      {renderLists(Object.keys(props.lists).map(id => props.lists[id]))}
+      </ul>
+  )
 }
 
 export default RenderLists

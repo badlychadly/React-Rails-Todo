@@ -1,11 +1,14 @@
 
 
 export default (state = {
-    lists: []
+    lists: {}
 }, action) => {
     switch (action.type) {
         case "GET_LISTS":
-            return {...state, lists: action.lists};
+        // debugger;
+        action.lists.forEach(l => state.lists[l.id] = l)
+        // debugger;
+            return {...state, lists: {...state.lists}};
         case "ADD_LIST": 
             return {...state, lists: [...state.lists, action.list]}
         case "DELETE_LIST":

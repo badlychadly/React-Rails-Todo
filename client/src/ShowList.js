@@ -8,7 +8,6 @@ const ShowList = (props) => {
         color: 'black'
     }
     const renderItems = !!props.list.items ? props.list.items.map(item => <li key={item.id}>{item.name}</li>) : <h3>No Items</h3>
-    // debugger;
 
     return (
         <div>

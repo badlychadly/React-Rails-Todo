@@ -16,7 +16,7 @@ class ListForm extends Component {
       };
 
       componentDidUpdate = () => {
-          debugger;
+        //   debugger;
           if (this.state.toNewList) {
             // this.props.history.replace({state: undefined})
             // this.setState(prevState => ({
