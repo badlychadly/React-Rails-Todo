@@ -7,6 +7,7 @@ export function ShowListRoute({component: Component, path, lists, addItem, ...re
     let {computedMatch} = rest
 
     let list = lists[computedMatch.params.listId]
+    // debugger;
 
     // let listsArray = Object.keys(lists).map(id => lists[id]);
 

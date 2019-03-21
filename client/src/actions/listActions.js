@@ -14,7 +14,7 @@ export const deleteList = (list) => {
             body: JSON.stringify(list)
           })
           .then(resp => {
-            dispatch({type: "DELETE_LIST", list})
+            dispatch({type: "DELETE_LIST", payload: list.id})
           })
     }
 }
