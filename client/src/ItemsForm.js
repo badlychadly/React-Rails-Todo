@@ -13,16 +13,9 @@ class ItemsForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        // fetch(`http://10.0.0.99:3001/lists/${this.props.list.id}/items`, {
-        //     method: 'POST',
-        //     headers: {'Content-Type': 'application/json'},
-        //     body: JSON.stringify(this.state)
-        // })
-        // .then(resp => resp.json())
-        // .then(item => {
-        //     debugger;
-        // })
+
         this.props.addItem(this.props.list, this.state)
+        this.setState({name: ''})
     }
 
 

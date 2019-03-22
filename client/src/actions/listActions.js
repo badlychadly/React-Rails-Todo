@@ -42,7 +42,7 @@ export const addItem = (list, itemData) => {
         .then(resp => resp.json())
         .then(item => {
             // debugger;
-            dispatch({type: "ADD_ITEM", list, item})
+            dispatch({type: "ADD_ITEM", payload: {listId: list.id, item}})
         })
     }
 }
