@@ -8,6 +8,12 @@ class ItemsController < ApplicationController
         render json: item, status: 201
     end
 
+    def destroy
+        # binding.pry
+        @list.items.destroy(params[:id])
+        render status: 201
+    end
+
 
     private 
 

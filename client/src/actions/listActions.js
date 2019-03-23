@@ -46,3 +46,19 @@ export const addItem = (list, itemData) => {
         })
     }
 }
+
+
+export const deleteItem = (listId, itemId) => {
+    // debugger;
+    return dispatch => {
+        return fetch(`http://10.0.0.99:3001/lists/${listId}/items/${itemId}`, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'}
+            // body: JSON.stringify(item)
+        })
+        .then(resp => {
+            // debugger;
+            dispatch({type: "DELETE_ITEM", payload: {listId, itemId}})
+        })
+    }
+}
