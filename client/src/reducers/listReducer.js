@@ -38,6 +38,9 @@ export default (state = {
                     }
                 }
             }
+        case "CHECK_ITEM":
+            debugger;
+            return {}
     
         default:
             return state;

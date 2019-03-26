@@ -1,6 +1,6 @@
 import React from 'react'
 import ItemsForm from './ItemsForm'
-import { Badge, Button } from 'reactstrap';
+// import { Badge, Button } from 'reactstrap';
 import Item from './Item'
 
 const ShowList = (props) => {
@@ -11,7 +11,7 @@ const ShowList = (props) => {
     //     debugger
     // }
 
-const renderItems = !!props.list.items ? props.list.items.map(item => <Item key={item.id} item={item} deleteItem={props.deleteItem} list={props.list} />) : <h3>No Items</h3>
+const renderItems = !!props.list.items ? props.list.items.map(item => <Item key={item.id} item={item} deleteItem={props.deleteItem} checkItem={props.checkItem} list={props.list} />) : <h3>No Items</h3>
 
     return (
         <div>

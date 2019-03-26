@@ -62,3 +62,15 @@ export const deleteItem = (listId, itemId) => {
         })
     }
 }
+
+
+export const checkItem = (listId, itemId) => {
+    return dispatch => {
+        return fetch(`http://10.0.0.99:3001/lists/${listId}/items/${itemId}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(resp => resp.json())
+        .then(item => dispatch({type: "CHECK_ITEM", listId, itemId}))
+    }
+}
