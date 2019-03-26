@@ -11,7 +11,13 @@ class ItemsController < ApplicationController
     def destroy
         # binding.pry
         @list.items.destroy(params[:id])
-        render status: 201
+        render status: 204
+    end
+
+    def update
+        item = @list.items.find(params[:id])
+        item.update_attributes(checked: !item.checked)
+        render json: item, status: 202
     end
 
 
