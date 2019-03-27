@@ -71,6 +71,6 @@ export const checkItem = (listId, itemId) => {
             headers: {'Content-Type': 'application/json'}
         })
         .then(resp => resp.json())
-        .then(item => dispatch({type: "CHECK_ITEM", listId, itemId}))
+        .then(item => dispatch({type: "CHECK_ITEM", listId, item}))
     }
 }

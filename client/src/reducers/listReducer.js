@@ -39,8 +39,21 @@ export default (state = {
                 }
             }
         case "CHECK_ITEM":
-            debugger;
-            return {}
+            list = state.lists[action.listId]
+            let items = list.items.map(i => {
+                if (i.id === action.item.id) {
+                    i.checked = action.item.checked
+                }
+               return i
+               })
+            // debugger;
+            return {lists: {
+                ...state.lists,
+                [action.listId]: {
+                    ...list,
+                    ...items 
+                }
+            }}
     
         default:
             return state;
