@@ -6,10 +6,10 @@ const Item = props => {
 
     return (
         <li>
-            {props.item.name} 
+            {props.item.checked ? <del>{props.item.name}</del> : props.item.name} 
             <Badge onClick={() => props.deleteItem(props.list.id, props.item.id )} tag={Button} size="sm" color="danger">X</Badge>  
             
-            <Badge onClick={() => props.checkItem(props.list.id, props.item.id)} tag={Button} color="success">check</Badge></li>
+            <Badge onClick={() => props.checkItem(props.list.id, props.item.id)} tag={Button} color="success">{props.item.checked ? "uncheck" : "check"}</Badge></li>
     )
 }
 
