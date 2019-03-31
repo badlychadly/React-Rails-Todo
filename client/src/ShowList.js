@@ -1,6 +1,6 @@
 import React from 'react'
 import ItemsForm from './ItemsForm'
-// import { Badge, Button } from 'reactstrap';
+import { Col } from 'reactstrap';
 import Item from './Item'
 
 const ShowList = (props) => {
@@ -16,10 +16,14 @@ const renderItems = !!props.list.items ? props.list.items.map(item => <Item key=
     return (
         <div>
             <h1>{props.list.title}</h1>
+            <Col sm={{size: 8, offset: 2}}>
             {renderItems}
+            </Col>
             <ItemsForm list={props.list} addItem={props.addItem} />
         </div>
     )
 }
 
 export default ShowList
+
+

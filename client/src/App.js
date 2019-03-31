@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     // debugger;
     return !!Object.keys(this.props.lists).length ? (
-      <div className="">
+      <div className="App">
         <ListForm addList={this.props.addList} />
         <Switch>
         <ShowListRoute path={`/lists/:listId`} deleteItem={this.props.deleteItem} addItem={this.props.addItem} component={ShowList} checkItem={this.props.checkItem} lists={this.props.lists} />
