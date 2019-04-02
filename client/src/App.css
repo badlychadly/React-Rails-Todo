@@ -31,3 +31,27 @@
     transform: rotate(360deg);
   }
 }
+
+ .myCard {
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.myCard:hover {
+  transform: scale(1, 1.09);
+  box-shadow: 0px 0px 20px 4px rgba(252, 250, 250, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+} 
+
+.myCard {
+  animation: myCard 1s ease;
+  -webkit-animation: myCard 1s ease;
+}
+@keyframes myCard {
+  from{transform:scale(0)}
+  80%{transform:scale(1.2)}
+  to{transform:scale(1)}
+}
+@-webkit-keyframes myCard {
+  from{-webkit-transform:scale(0)}
+  80%{-webkit-transform:scale(1.2)}
+  to{-webkit-transform:scale(1)}
+}

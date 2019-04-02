@@ -11,7 +11,7 @@ const Item = props => {
             
         //     <Badge onClick={() => props.checkItem(props.list.id, props.item.id)} tag={Button} color="success">{props.item.checked ? "uncheck" : "check"}</Badge>
         // </li>
-        <Card className="p-3 m-2">
+        <Card className="p-3 m-2 myCard">
                 <CardText tag="h4">
                 {props.item.name}
                 </CardText>
