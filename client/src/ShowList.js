@@ -16,7 +16,7 @@ const renderItems = !!props.list.items ? props.list.items.map(item => <Item key=
     return (
         <div>
             <h1>{props.list.title}</h1>
-            <Col sm={{size: 8, offset: 2}}>
+            <Col sm={{size: 6, offset: 3}}>
             {renderItems}
             </Col>
             <ItemsForm list={props.list} addItem={props.addItem} />
