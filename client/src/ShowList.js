@@ -20,6 +20,8 @@ const renderItems = !!props.list.items ? props.list.items.map(item => <Item key=
             {renderItems}
             </Col>
             <ItemsForm list={props.list} addItem={props.addItem} />
+        {/* <div className="example animated">me</div> */}
+            
         </div>
     )
 }

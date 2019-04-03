@@ -4,9 +4,11 @@ import { Card, CardText, Row, Col  } from 'reactstrap';
 
 const Item = props => {
     const [itemCheck, setItemCheck] = useState(props.item.checked)
+    const [animateItem, setAnimateItem] = useState("")
 
     useEffect(() => {
         setItemCheck(props.item.checked)
+        props.item.checked ? setAnimateItem("animated example") : setAnimateItem("")
     })
 
     return (
@@ -20,12 +22,12 @@ const Item = props => {
                 <CardText tag="h4">
                 <Row>
                     <Col>
-                        <span className="ml-5">{props.item.name}</span>
+                        <div className="ml-5">{props.item.name}</div>
                     </Col>
                     <Col sm="4">
-                    {/* {itemCheck && */}
-                    <span hidden={!itemCheck} className="w-50 checkedItem bg-success font-weight-bold text-white">&#10003;</span>
-                    {/* } */}
+                    {itemCheck &&
+                    <div className={`${animateItem} bg-success text-white`}>&#10003;</div>
+                    } 
                     </Col>
 
                 </Row>
