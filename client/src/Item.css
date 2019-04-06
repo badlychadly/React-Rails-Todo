@@ -1,0 +1,32 @@
+
+
+.animated {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+} 
+
+
+.example {
+  width: 1.5em;
+  height: 1.5em;
+  
+  border-radius: 50%;
+  -webkit-animation-name: example;
+  animation-name: example;
+}
+
+
+
+ @keyframes example {
+  from{transform:scale(0)}
+  80%{transform:scale(1.5)}
+  to{transform:scale(1)}
+}
+
+@-webkit-keyframes example {
+  from{-webkit-transform:scale(0)}
+  80%{-webkit-transform:scale(1.5)}
+  to{-webkit-transform:scale(1)}
+}

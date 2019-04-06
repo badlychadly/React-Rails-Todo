@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Card, CardText, Row, Col  } from 'reactstrap';
+import './Item.css'
 
 
 const Item = props => {
