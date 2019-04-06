@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './App.css';
-import ShowList from './ShowList'
-import RenderLists from './RenderLists'
+import ShowList from './components/ShowList'
+import RenderLists from './components/RenderLists'
 import { getLists, deleteList, addList, addItem, deleteItem, checkItem } from './actions/listActions'
 import ListForm from './containers/ListForm'
 import { ShowListRoute } from './routeFunctions/ShowListRoute'

@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemsForm from './ItemsForm'
+import ItemsForm from '../ItemsForm'
 import { Col } from 'reactstrap';
 import Item from './Item'
 
